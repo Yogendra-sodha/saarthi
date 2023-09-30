@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Driver Page</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Driver Page</h1>
+    <h2>Offer a Ride</h2>
+    <form action="/driver" method="post">
+        <input type="text" name="driver_name" placeholder="Your Name" required>
+        <button type="submit">Offer Ride</button>
+    </form>
+    <h2>Drivers Offering Rides:</h2>
+    <ul>
+        {% for driver in drivers %}
+            <li>{{ driver }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

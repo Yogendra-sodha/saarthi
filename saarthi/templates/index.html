@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ride Sharing App</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Ride Sharing App</h1>
+    <div class="options">
+        <h2>Select your role:</h2>
+        <form action="/user" method="get">
+            <button type="submit">User</button>
+        </form>
+        <form action="/driver" method="get">
+            <button type="submit">Driver</button>
+        </form>
+        <form action="/admin" method="get">
+            <button type="submit">Admin</button>
+        </form>
+    </div>
+</body>
+</html>

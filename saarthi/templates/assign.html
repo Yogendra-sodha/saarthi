@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Page</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Admin Page</h1>
+    <h2>Assign Users to Drivers</h2>
+    <form action="/assign" method="post">
+        <label for="driver">Select a Driver:</label>
+        <select name="driver" id="driver" required>
+            {% for driver in drivers %}
+                <option value="{{ driver }}">{{ driver }}</option>
+            {% endfor %}
+        </select>
+        <h3>Select Users (up to 4):</h3>
+        {% for user in users %}
+            <input type="checkbox" name="user" value="{{ user }}"> {{ user }}<br>
+        {% endfor %}
+        <button type="submit">Assign</button>
+    </form>
+</body>
+</html>

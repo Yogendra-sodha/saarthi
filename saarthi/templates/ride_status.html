@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ride Status</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Ride Status</h1>
+    <h2>Assigned Rides</h2>
+    <ul>
+        {% for driver, users in assigned_rides.items() %}
+            <li>
+                Driver: {{ driver }}<br>
+                Users: {{ users|join(', ') }}
+                <a href="{{ url_for('finish_ride', driver_name=driver) }}">Finish Ride</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <h2>Completed Rides</h2>
+    <ul>
+        {% for users in completed_rides %}
+            <li>
+                Users: {{ users|join(', ') }}
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
