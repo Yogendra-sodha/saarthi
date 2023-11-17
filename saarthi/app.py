@@ -65,7 +65,7 @@ def wait_for_assignment():
     driver_name = session.get('driver_name')
     return render_template("wait_for_assignment.html", driver_name=driver_name)
 
-@app.route("/assign", methods=["POST"])
+@app.route("/assign", methods=["POST","GET"])
 def assign():
     if request.method == "POST":
         driver_name = session.get('driver_name')
@@ -76,6 +76,7 @@ def assign():
 
         flash('Ride assigned successfully!')
         return redirect(url_for('admin'))
+    return "There was no page for get request"
 
 @app.route("/ride_status")
 def ride_status():
